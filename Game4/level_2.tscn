@@ -1,0 +1,154 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://level.gd" id="1_level"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://ground.tscn" id="3_ground"]
+[ext_resource type="PackedScene" path="res://platform.tscn" id="4_platform"]
+[ext_resource type="PackedScene" path="res://moving_platform.tscn" id="5_moving"]
+[ext_resource type="PackedScene" path="res://gem.tscn" id="6_gem"]
+[ext_resource type="PackedScene" path="res://slime.tscn" id="7_slime"]
+[ext_resource type="PackedScene" path="res://spike.tscn" id="8_spike"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="9_door"]
+[ext_resource type="PackedScene" path="res://hud.tscn" id="10_hud"]
+[ext_resource type="Texture2D" path="res://art/hills.svg" id="11_hills"]
+[ext_resource type="AudioStream" path="res://audio/gem.wav" id="12_gem"]
+[ext_resource type="AudioStream" path="res://audio/levelup.wav" id="13_door"]
+[ext_resource type="AudioStream" path="res://audio/gameover.wav" id="14_death"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_level")
+level_name = "Level 2 - Twilight Cliffs"
+level_width = 3026
+next_scene = "res://win.tscn"
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sky" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.22, 0.2, 0.42, 1)
+
+[node name="Hills" type="TextureRect" parent="Background"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -330.0
+mouse_filter = 2
+texture = ExtResource("11_hills")
+expand_mode = 1
+
+[node name="World" type="Node2D" parent="."]
+modulate = Color(0.8, 0.82, 1.0, 1)
+
+[node name="Ground1" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(96, 548)
+
+[node name="Ground2" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(288, 548)
+
+[node name="Ground3" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(1196, 548)
+
+[node name="Ground4" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(1388, 548)
+
+[node name="Ground5" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(1580, 548)
+
+[node name="Ground6" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(1772, 548)
+
+[node name="Ground7" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(2546, 548)
+
+[node name="Ground8" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(2738, 548)
+
+[node name="Ground9" parent="World" instance=ExtResource("3_ground")]
+position = Vector2(2930, 548)
+
+[node name="Platform1" parent="World" instance=ExtResource("4_platform")]
+position = Vector2(520, 430)
+
+[node name="Platform2" parent="World" instance=ExtResource("4_platform")]
+position = Vector2(760, 360)
+
+[node name="Platform3" parent="World" instance=ExtResource("4_platform")]
+position = Vector2(1000, 290)
+
+[node name="MovingPlatform1" parent="World" instance=ExtResource("5_moving")]
+position = Vector2(1990, 440)
+travel = Vector2(300, 0)
+duration = 2.6
+
+[node name="Spike1" parent="World" instance=ExtResource("8_spike")]
+position = Vector2(1470, 484)
+
+[node name="Spike2" parent="World" instance=ExtResource("8_spike")]
+position = Vector2(1534, 484)
+
+[node name="Spike3" parent="World" instance=ExtResource("8_spike")]
+position = Vector2(2700, 484)
+
+[node name="Spike4" parent="World" instance=ExtResource("8_spike")]
+position = Vector2(2764, 484)
+
+[node name="Gems" type="Node2D" parent="."]
+
+[node name="Gem1" parent="Gems" instance=ExtResource("6_gem")]
+position = Vector2(520, 385)
+
+[node name="Gem2" parent="Gems" instance=ExtResource("6_gem")]
+position = Vector2(760, 315)
+
+[node name="Gem3" parent="Gems" instance=ExtResource("6_gem")]
+position = Vector2(1000, 245)
+
+[node name="Gem4" parent="Gems" instance=ExtResource("6_gem")]
+position = Vector2(1502, 390)
+
+[node name="Gem5" parent="Gems" instance=ExtResource("6_gem")]
+position = Vector2(1820, 455)
+
+[node name="Gem6" parent="Gems" instance=ExtResource("6_gem")]
+position = Vector2(2140, 370)
+
+[node name="Gem7" parent="Gems" instance=ExtResource("6_gem")]
+position = Vector2(2620, 455)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Slime1" parent="Enemies" instance=ExtResource("7_slime")]
+position = Vector2(1150, 472)
+distance = 250.0
+speed = 80.0
+
+[node name="Slime2" parent="Enemies" instance=ExtResource("7_slime")]
+position = Vector2(1600, 472)
+distance = 200.0
+speed = 90.0
+
+[node name="Slime3" parent="Enemies" instance=ExtResource("7_slime")]
+position = Vector2(2480, 472)
+distance = 110.0
+speed = 60.0
+
+[node name="Door" parent="." instance=ExtResource("9_door")]
+position = Vector2(2950, 452)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(100, 460)
+
+[node name="HUD" parent="." instance=ExtResource("10_hud")]
+
+[node name="GemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_gem")
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_door")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_death")

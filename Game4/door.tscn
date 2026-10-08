@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://door.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://art/door_closed.svg" id="2_closed"]
+[ext_resource type="Texture2D" path="res://art/door_open.svg" id="3_open"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(28, 80)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_script")
+open_texture = ExtResource("3_open")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_closed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_door")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
