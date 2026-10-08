@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="1_csd35"]
+[ext_resource type="PackedScene" path="res://Assets/Models/flag.glb" id="2_fu6ca"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nirck"]
+albedo_color = Color(1, 0.81960785, 0.4, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(1, 0.81960785, 0.4, 1)
+emission_energy_multiplier = 0.4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bhwdl"]
+top_radius = 0.8
+bottom_radius = 0.7
+height = 0.12
+radial_segments = 10
+rings = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v2ye5"]
+height = 2.4
+radius = 1.1
+
+[node name="Checkpoint" type="Area3D" unique_id=1943541343]
+script = ExtResource("1_csd35")
+
+[node name="Flag" parent="." unique_id=530721049 instance=ExtResource("2_fu6ca")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=159652518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+material_override = SubResource("StandardMaterial3D_nirck")
+mesh = SubResource("CylinderMesh_bhwdl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=227317249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("CylinderShape3D_v2ye5")

@@ -1,0 +1,91 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Spinner.gd" id="1_wvwdb"]
+[ext_resource type="Script" path="res://Scripts/Hazard.gd" id="2_wdmua"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxa50"]
+albedo_color = Color(0.2901961, 0.2901961, 0.34509805, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sbg6n"]
+top_radius = 0.22
+bottom_radius = 0.28
+height = 0.9
+radial_segments = 8
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k55sj"]
+albedo_color = Color(0.9490196, 0.75686276, 0.30588236, 1)
+roughness = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_xs1gw"]
+radius = 0.3
+height = 0.6
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0kgsw"]
+albedo_color = Color(0.8980392, 0.28235295, 0.3019608, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(0.8980392, 0.28235295, 0.3019608, 1)
+emission_energy_multiplier = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_crjpu"]
+size = Vector3(7, 0.28, 0.28)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c75qb"]
+albedo_color = Color(1, 0.81960785, 0.4, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(1, 0.81960785, 0.4, 1)
+emission_energy_multiplier = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_l6q01"]
+radius = 0.24
+height = 0.48
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_5r5fe"]
+radius = 0.24
+height = 0.48
+radial_segments = 8
+rings = 4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbg5o"]
+size = Vector3(7, 0.3, 0.3)
+
+[node name="Spinner" type="Node3D" unique_id=1449820750]
+script = ExtResource("1_wvwdb")
+
+[node name="Pole" type="MeshInstance3D" parent="." unique_id=394161069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+material_override = SubResource("StandardMaterial3D_uxa50")
+mesh = SubResource("CylinderMesh_sbg6n")
+
+[node name="Cap" type="MeshInstance3D" parent="." unique_id=1903141009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+material_override = SubResource("StandardMaterial3D_k55sj")
+mesh = SubResource("SphereMesh_xs1gw")
+
+[node name="Bar" type="Area3D" parent="." unique_id=554259651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
+script = ExtResource("2_wdmua")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bar" unique_id=899543503]
+material_override = SubResource("StandardMaterial3D_0kgsw")
+mesh = SubResource("BoxMesh_crjpu")
+
+[node name="TipA" type="MeshInstance3D" parent="Bar" unique_id=2045383746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0)
+material_override = SubResource("StandardMaterial3D_c75qb")
+mesh = SubResource("SphereMesh_l6q01")
+
+[node name="TipB" type="MeshInstance3D" parent="Bar" unique_id=1463168289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0)
+material_override = SubResource("StandardMaterial3D_c75qb")
+mesh = SubResource("SphereMesh_5r5fe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bar" unique_id=783894406]
+shape = SubResource("BoxShape3D_tbg5o")

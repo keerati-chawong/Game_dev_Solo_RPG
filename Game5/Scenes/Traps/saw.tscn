@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Saw.gd" id="1_csamq"]
+[ext_resource type="Script" path="res://Scripts/Hazard.gd" id="2_djfg6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn7ay"]
+albedo_color = Color(0.8352941, 0.85882354, 0.9019608, 1)
+roughness = 0.25
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y5mjk"]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.1
+radial_segments = 10
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1met"]
+albedo_color = Color(0.8980392, 0.28235295, 0.3019608, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(0.8980392, 0.28235295, 0.3019608, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_d64dv"]
+size = Vector3(0.22, 0.1, 0.22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7g8gq"]
+size = Vector3(0.22, 0.1, 0.22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pey60"]
+size = Vector3(0.22, 0.1, 0.22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5jd2m"]
+size = Vector3(0.22, 0.1, 0.22)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v2v67"]
+size = Vector3(0.22, 0.1, 0.22)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm7ow"]
+albedo_color = Color(0.22745098, 0.22745098, 0.26666668, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oyv0x"]
+top_radius = 0.16
+bottom_radius = 0.16
+height = 0.16
+radial_segments = 8
+rings = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q7scv"]
+radius = 0.55
+
+[node name="Saw" type="Node3D" unique_id=1131556290]
+script = ExtResource("1_csamq")
+
+[node name="Blade" type="Area3D" parent="." unique_id=608180224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+script = ExtResource("2_djfg6")
+
+[node name="Disc" type="MeshInstance3D" parent="Blade" unique_id=1902919417]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_gn7ay")
+mesh = SubResource("CylinderMesh_y5mjk")
+
+[node name="Tooth" type="MeshInstance3D" parent="Blade/Disc" unique_id=539168257]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0.62, 0, 0)
+material_override = SubResource("StandardMaterial3D_g1met")
+mesh = SubResource("BoxMesh_d64dv")
+
+[node name="Tooth2" type="MeshInstance3D" parent="Blade/Disc" unique_id=2037133240]
+transform = Transform3D(0.8910065, 0, -0.4539905, 0, 1, 0, 0.4539905, 0, 0.8910065, 0.19159053, 0, 0.58965504)
+material_override = SubResource("StandardMaterial3D_g1met")
+mesh = SubResource("BoxMesh_7g8gq")
+
+[node name="Tooth3" type="MeshInstance3D" parent="Blade/Disc" unique_id=960403857]
+transform = Transform3D(-0.15643445, 0, -0.98768836, 0, 1, 0, 0.98768836, 0, -0.15643445, -0.50159055, 0, 0.36442685)
+material_override = SubResource("StandardMaterial3D_g1met")
+mesh = SubResource("BoxMesh_pey60")
+
+[node name="Tooth4" type="MeshInstance3D" parent="Blade/Disc" unique_id=173611841]
+transform = Transform3D(-0.98768836, 0, -0.15643445, 0, 1, 0, 0.15643445, 0, -0.98768836, -0.50159055, 0, -0.36442685)
+material_override = SubResource("StandardMaterial3D_g1met")
+mesh = SubResource("BoxMesh_5jd2m")
+
+[node name="Tooth5" type="MeshInstance3D" parent="Blade/Disc" unique_id=1728503671]
+transform = Transform3D(-0.45399067, 0, 0.89100647, 0, 1, 0, -0.89100647, 0, -0.45399067, 0.19159053, 0, -0.58965504)
+material_override = SubResource("StandardMaterial3D_g1met")
+mesh = SubResource("BoxMesh_v2v67")
+
+[node name="Hub" type="MeshInstance3D" parent="Blade" unique_id=879063488]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_nm7ow")
+mesh = SubResource("CylinderMesh_oyv0x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blade" unique_id=1897053043]
+shape = SubResource("SphereShape3D_q7scv")

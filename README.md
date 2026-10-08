@@ -12,6 +12,7 @@
 | 2 | Game21 - Creating instances | [game21.html](https://keerati-chawong.github.io/Game_dev_Solo_RPG/game21.html) |
 | 2 | Game22 - Dungeon Dodge | [game22.html](https://keerati-chawong.github.io/Game_dev_Solo_RPG/game22.html) |
 | 4 | Gem Knight - 2D Platform Game | [game4.html](https://keerati-chawong.github.io/Game_dev_Solo_RPG/game4.html) |
+| 5 | Coin Quest 3D - First 3D Game | [game5.html](https://keerati-chawong.github.io/Game_dev_Solo_RPG/game5.html) |
 | แถม | Rogue Chess 3D | [chess3d.html](https://keerati-chawong.github.io/Game_dev_Solo_RPG/chess3d.html) |
 
 ## โครงสร้าง

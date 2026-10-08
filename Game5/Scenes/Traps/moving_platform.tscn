@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/MovingPlatform.gd" id="1_05xnt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grboe"]
+albedo_color = Color(0.23921569, 0.43529412, 0.7058824, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_2itrl"]
+size = Vector3(3, 0.4, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcbm7"]
+albedo_color = Color(1, 0.81960785, 0.4, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(1, 0.81960785, 0.4, 1)
+emission_energy_multiplier = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_qn7u3"]
+size = Vector3(2.6, 0.06, 2.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ehjbl"]
+size = Vector3(0.5, 0.07, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qa5m"]
+size = Vector3(3, 0.4, 3)
+
+[node name="MovingPlatform" type="AnimatableBody3D" unique_id=603842784]
+script = ExtResource("1_05xnt")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=808719198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+material_override = SubResource("StandardMaterial3D_grboe")
+mesh = SubResource("BoxMesh_2itrl")
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=1724861718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = SubResource("StandardMaterial3D_tcbm7")
+mesh = SubResource("BoxMesh_qn7u3")
+
+[node name="Arrow" type="MeshInstance3D" parent="." unique_id=549673002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+material_override = SubResource("StandardMaterial3D_grboe")
+mesh = SubResource("BoxMesh_ehjbl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=759776605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shape = SubResource("BoxShape3D_6qa5m")

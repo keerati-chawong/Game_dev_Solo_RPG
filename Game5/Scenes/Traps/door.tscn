@@ -1,0 +1,87 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Door.gd" id="1_4qlpp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7enal"]
+transparency = 1
+albedo_color = Color(0.9, 0.25, 0.25, 0.85)
+roughness = 0.9
+emission_enabled = true
+emission = Color(0.9, 0.25, 0.25, 0.85)
+emission_energy_multiplier = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ber5"]
+transparency = 1
+albedo_color = Color(0.35, 1, 0.55, 0.55)
+roughness = 0.9
+emission_enabled = true
+emission = Color(0.35, 1, 0.55, 0.55)
+emission_energy_multiplier = 1.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wrft"]
+albedo_color = Color(0.5529412, 0.5411765, 0.6, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxnrd"]
+size = Vector3(0.5, 3.2, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lnbqb"]
+size = Vector3(0.5, 3.2, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3g54n"]
+size = Vector3(3.4, 0.5, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p55fq"]
+albedo_color = Color(0.43137255, 0.41960785, 0.47843137, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_i6fi4"]
+size = Vector3(3, 0.16, 1.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s21e7"]
+size = Vector3(2, 3, 0.14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r7m8h"]
+size = Vector3(1.8, 2.6, 0.7)
+
+[node name="Door" type="Area3D" unique_id=1096325230]
+script = ExtResource("1_4qlpp")
+locked_material = SubResource("StandardMaterial3D_7enal")
+open_material = SubResource("StandardMaterial3D_5ber5")
+
+[node name="PillarLeft" type="MeshInstance3D" parent="." unique_id=1237654445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_4wrft")
+mesh = SubResource("BoxMesh_fxnrd")
+
+[node name="PillarRight" type="MeshInstance3D" parent="." unique_id=196902136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_4wrft")
+mesh = SubResource("BoxMesh_lnbqb")
+
+[node name="Beam" type="MeshInstance3D" parent="." unique_id=1232959287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.45, 0)
+material_override = SubResource("StandardMaterial3D_4wrft")
+mesh = SubResource("BoxMesh_3g54n")
+
+[node name="Step" type="MeshInstance3D" parent="." unique_id=1422182908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+material_override = SubResource("StandardMaterial3D_p55fq")
+mesh = SubResource("BoxMesh_i6fi4")
+
+[node name="Panel" type="MeshInstance3D" parent="." unique_id=639650713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+material_override = SubResource("StandardMaterial3D_7enal")
+mesh = SubResource("BoxMesh_s21e7")
+
+[node name="Label" type="Label3D" parent="." unique_id=142727724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3, 0)
+pixel_size = 0.006
+billboard = 1
+text = "COINS 0 / 0"
+font_size = 96
+outline_size = 24
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=953215263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+shape = SubResource("BoxShape3D_r7m8h")
