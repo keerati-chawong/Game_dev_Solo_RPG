@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="72" viewBox="0 0 64 72">
+  <!-- cape -->
+  <path d="M20 30 L9 55 L26 55 Z" fill="#c0392b" stroke="#6e1d14" stroke-width="2" stroke-linejoin="round"/>
+  <!-- legs -->
+  <rect x="23" y="50" width="8" height="12" rx="2" fill="#3b4a6b" stroke="#1c2438" stroke-width="2"/>
+  <rect x="35" y="52" width="8" height="14" rx="2" fill="#3b4a6b" stroke="#1c2438" stroke-width="2"/>
+  <rect x="20" y="60" width="12" height="6" rx="2" fill="#5a3a1e" stroke="#2e1c0c" stroke-width="2"/>
+  <rect x="35" y="64" width="12" height="6" rx="2" fill="#5a3a1e" stroke="#2e1c0c" stroke-width="2"/>
+  <!-- body armor -->
+  <rect x="20" y="29" width="26" height="24" rx="6" fill="#aab4c8" stroke="#4a5368" stroke-width="2"/>
+  <rect x="20" y="43" width="26" height="5" fill="#8a5a2c" stroke="#4a2e12" stroke-width="1.5"/>
+  <!-- sword -->
+  <rect x="52" y="10" width="5" height="26" fill="#e6edf7" stroke="#59627a" stroke-width="2"/>
+  <rect x="47" y="34" width="15" height="4" rx="1" fill="#e0b040" stroke="#7a5a12" stroke-width="1.5"/>
+  <circle cx="50" cy="40" r="5" fill="#f0c9a0" stroke="#8a5a3a" stroke-width="2"/>
+  <!-- shield -->
+  <path d="M6 32 L22 32 L22 44 C22 50 14 54 14 54 C14 54 6 50 6 44 Z" fill="#3f7fd0" stroke="#1d3f70" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M14 36 L14 49 M9 42 L19 42" stroke="#f2d75c" stroke-width="2.5"/>
+  <!-- head + helmet -->
+  <circle cx="33" cy="17" r="13" fill="#f0c9a0" stroke="#8a5a3a" stroke-width="2"/>
+  <path d="M19 17 C19 5 26 1 33 1 C40 1 47 5 47 17 L42 17 L42 11 L24 11 L24 17 Z" fill="#aab4c8" stroke="#4a5368" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="29" cy="18" r="2" fill="#1c2438"/>
+  <circle cx="38" cy="18" r="2" fill="#1c2438"/>
+  <path d="M30 24 C32 26 35 26 37 24" fill="none" stroke="#8a3a2a" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

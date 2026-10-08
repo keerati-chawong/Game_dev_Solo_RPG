@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://main.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://mob.tscn" id="2_mob"]
+[ext_resource type="PackedScene" path="res://gem.tscn" id="3_gem"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="4_player"]
+[ext_resource type="PackedScene" path="res://hud.tscn" id="5_hud"]
+[ext_resource type="Texture2D" path="res://art/floor.svg" id="6_floor"]
+[ext_resource type="Texture2D" path="res://art/torch.svg" id="7_torch"]
+[ext_resource type="Texture2D" path="res://art/bones.svg" id="8_bones"]
+[ext_resource type="AudioStream" path="res://audio/music.wav" id="9_music"]
+[ext_resource type="AudioStream" path="res://audio/gameover.wav" id="10_over"]
+[ext_resource type="AudioStream" path="res://audio/gem.wav" id="11_gem"]
+[ext_resource type="AudioStream" path="res://audio/levelup.wav" id="12_levelup"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_script")
+mob_scene = ExtResource("2_mob")
+gem_scene = ExtResource("3_gem")
+
+[node name="Floor" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("6_floor")
+stretch_mode = 1
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="Torch1" type="Sprite2D" parent="Decor"]
+position = Vector2(48, 110)
+texture = ExtResource("7_torch")
+
+[node name="Torch2" type="Sprite2D" parent="Decor"]
+position = Vector2(432, 110)
+texture = ExtResource("7_torch")
+
+[node name="Torch3" type="Sprite2D" parent="Decor"]
+position = Vector2(48, 610)
+texture = ExtResource("7_torch")
+
+[node name="Torch4" type="Sprite2D" parent="Decor"]
+position = Vector2(432, 610)
+texture = ExtResource("7_torch")
+
+[node name="Bones1" type="Sprite2D" parent="Decor"]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(130, 250)
+texture = ExtResource("8_bones")
+
+[node name="Bones2" type="Sprite2D" parent="Decor"]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(350, 520)
+rotation = 0.6
+texture = ExtResource("8_bones")
+
+[node name="Player" parent="." instance=ExtResource("4_player")]
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="GemTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 450)
+
+[node name="MobPath" type="Path2D" parent="."]
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+
+[node name="HUD" parent="." instance=ExtResource("5_hud")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_music")
+volume_db = -8.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_over")
+
+[node name="GemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gem")
+
+[node name="LevelUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_levelup")
+
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="GemTimer" to="." method="_on_gem_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://main.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://ball.tscn" id="2_ball"]
+[ext_resource type="PackedScene" path="res://wall.tscn" id="3_wall"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_heavy"]
+friction = 0.9
+bounce = 0.2
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_script")
+ball_scene = ExtResource("2_ball")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Floor1" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(96, 632)
+
+[node name="Floor2" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(288, 632)
+
+[node name="Floor3" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(480, 632)
+
+[node name="Floor4" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(672, 632)
+
+[node name="Floor5" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(864, 632)
+
+[node name="Floor6" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(1056, 632)
+
+[node name="Left1" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(16, 96)
+rotation = 1.5708
+
+[node name="Left2" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(16, 288)
+rotation = 1.5708
+
+[node name="Left3" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(16, 480)
+rotation = 1.5708
+
+[node name="Left4" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(16, 520)
+rotation = 1.5708
+
+[node name="Right1" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(1136, 96)
+rotation = 1.5708
+
+[node name="Right2" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(1136, 288)
+rotation = 1.5708
+
+[node name="Right3" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(1136, 480)
+rotation = 1.5708
+
+[node name="Right4" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(1136, 520)
+rotation = 1.5708
+
+[node name="Ramp1" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(330, 250)
+rotation = 0.35
+
+[node name="Ramp2" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(800, 340)
+rotation = -0.35
+
+[node name="Ledge" parent="Walls" instance=ExtResource("3_wall")]
+position = Vector2(560, 480)
+
+[node name="Balls" type="Node2D" parent="."]
+
+[node name="Ball1" parent="Balls" instance=ExtResource("2_ball")]
+position = Vector2(280, 60)
+
+[node name="Ball2" parent="Balls" instance=ExtResource("2_ball")]
+position = Vector2(560, 120)
+
+[node name="Ball3" parent="Balls" instance=ExtResource("2_ball")]
+position = Vector2(830, 60)
+
+[node name="HeavyBall" parent="Balls" instance=ExtResource("2_ball")]
+modulate = Color(1, 0.55, 0.55, 1)
+position = Vector2(960, 150)
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_heavy")
+gravity_scale = 2.0
+
+[node name="Hint" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 12.0
+offset_right = 900.0
+offset_bottom = 40.0
+text = "Click: drop a slime   |   Enter: reset"
