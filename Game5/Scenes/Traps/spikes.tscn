@@ -23,59 +23,59 @@ rings = 1
 [sub_resource type="BoxShape3D" id="BoxShape3D_6yre6"]
 size = Vector3(1.45, 0.5, 1.45)
 
-[node name="Spikes" type="Area3D" unique_id=769827556]
+[node name="Spikes" type="Area3D" unique_id=171011215]
 script = ExtResource("1_oc00y")
 
-[node name="Base" type="MeshInstance3D" parent="." unique_id=1330143098]
+[node name="Base" type="MeshInstance3D" parent="." unique_id=1581419035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 material_override = SubResource("StandardMaterial3D_nm7ow")
 mesh = SubResource("BoxMesh_glo6h")
 
-[node name="Spike" type="MeshInstance3D" parent="." unique_id=1826477677]
+[node name="Spike" type="MeshInstance3D" parent="." unique_id=2057730146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52, 0.4, -0.52)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike2" type="MeshInstance3D" parent="." unique_id=1535525485]
+[node name="Spike2" type="MeshInstance3D" parent="." unique_id=1153516901]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52, 0.4, 0)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike3" type="MeshInstance3D" parent="." unique_id=74415248]
+[node name="Spike3" type="MeshInstance3D" parent="." unique_id=1778333949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52, 0.4, 0.52)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike4" type="MeshInstance3D" parent="." unique_id=1903280665]
+[node name="Spike4" type="MeshInstance3D" parent="." unique_id=1624953598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.52)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike5" type="MeshInstance3D" parent="." unique_id=255579202]
+[node name="Spike5" type="MeshInstance3D" parent="." unique_id=1108836421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike6" type="MeshInstance3D" parent="." unique_id=691748316]
+[node name="Spike6" type="MeshInstance3D" parent="." unique_id=987231338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.52)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike7" type="MeshInstance3D" parent="." unique_id=1966660013]
+[node name="Spike7" type="MeshInstance3D" parent="." unique_id=864612663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52, 0.4, -0.52)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike8" type="MeshInstance3D" parent="." unique_id=540294803]
+[node name="Spike8" type="MeshInstance3D" parent="." unique_id=778672636]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52, 0.4, 0)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="Spike9" type="MeshInstance3D" parent="." unique_id=573543861]
+[node name="Spike9" type="MeshInstance3D" parent="." unique_id=2113859192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52, 0.4, 0.52)
 material_override = SubResource("StandardMaterial3D_yylqm")
 mesh = SubResource("CylinderMesh_d4yot")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1855264817]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1423938300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("BoxShape3D_6yre6")

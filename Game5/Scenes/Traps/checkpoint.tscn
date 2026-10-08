@@ -21,17 +21,17 @@ rings = 1
 height = 2.4
 radius = 1.1
 
-[node name="Checkpoint" type="Area3D" unique_id=1943541343]
+[node name="Checkpoint" type="Area3D" unique_id=1670082200]
 script = ExtResource("1_csd35")
 
 [node name="Flag" parent="." unique_id=530721049 instance=ExtResource("2_fu6ca")]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
 
-[node name="Base" type="MeshInstance3D" parent="." unique_id=159652518]
+[node name="Base" type="MeshInstance3D" parent="." unique_id=1945380665]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 material_override = SubResource("StandardMaterial3D_nirck")
 mesh = SubResource("CylinderMesh_bhwdl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=227317249]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1713602032]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 shape = SubResource("CylinderShape3D_v2ye5")

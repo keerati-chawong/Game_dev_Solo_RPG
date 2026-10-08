@@ -3,6 +3,8 @@
 # ---------------------- 3D PLATFORMER CONTROLLER BY SD STUDIOS --------------------- #
 # ---------------------------- ATTRIBUTION NOT REQUIRED ----------------------------- #
 # ----------------------------------------------------------------------------------- #
+# Lab 5 change: the camera angle stays locked behind the player. It only turns
+# while the right mouse button is held and dragged, and the cursor is never captured.
 
 extends Node3D
 
@@ -20,25 +22,17 @@ extends Node3D
 
 func _ready():
 	top_level = true
-	# Confining Mouse Cursor in the game view so it doesnt get in the way of gameplay
-	timer.start()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 # Handling Camera Movement
 func _unhandled_input(event):
-	# Browsers only lock the mouse after a click, so clicking the game captures it again.
-	if event is InputEventMouseButton and event.pressed:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and (event.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
 		rotation_degrees.x -= event.relative.y * mouse_sensitivity
 		rotation_degrees.x = clamp(rotation_degrees.x, -60, -0)
 
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0, 360)
-		auto_rotate = false
-		timer.start()
 
 
+# The kit turned the camera by itself after this timer; the angle is locked now.
 func _on_camera_control_timer_timeout():
-	auto_rotate = true
+	pass

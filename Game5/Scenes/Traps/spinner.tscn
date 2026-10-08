@@ -56,36 +56,36 @@ rings = 4
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbg5o"]
 size = Vector3(7, 0.3, 0.3)
 
-[node name="Spinner" type="Node3D" unique_id=1449820750]
+[node name="Spinner" type="Node3D" unique_id=1613256969]
 script = ExtResource("1_wvwdb")
 
-[node name="Pole" type="MeshInstance3D" parent="." unique_id=394161069]
+[node name="Pole" type="MeshInstance3D" parent="." unique_id=9578770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
 material_override = SubResource("StandardMaterial3D_uxa50")
 mesh = SubResource("CylinderMesh_sbg6n")
 
-[node name="Cap" type="MeshInstance3D" parent="." unique_id=1903141009]
+[node name="Cap" type="MeshInstance3D" parent="." unique_id=1425568350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 material_override = SubResource("StandardMaterial3D_k55sj")
 mesh = SubResource("SphereMesh_xs1gw")
 
-[node name="Bar" type="Area3D" parent="." unique_id=554259651]
+[node name="Bar" type="Area3D" parent="." unique_id=1659132714]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38, 0)
 script = ExtResource("2_wdmua")
 
-[node name="Mesh" type="MeshInstance3D" parent="Bar" unique_id=899543503]
+[node name="Mesh" type="MeshInstance3D" parent="Bar" unique_id=1298884004]
 material_override = SubResource("StandardMaterial3D_0kgsw")
 mesh = SubResource("BoxMesh_crjpu")
 
-[node name="TipA" type="MeshInstance3D" parent="Bar" unique_id=2045383746]
+[node name="TipA" type="MeshInstance3D" parent="Bar" unique_id=185173413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0)
 material_override = SubResource("StandardMaterial3D_c75qb")
 mesh = SubResource("SphereMesh_l6q01")
 
-[node name="TipB" type="MeshInstance3D" parent="Bar" unique_id=1463168289]
+[node name="TipB" type="MeshInstance3D" parent="Bar" unique_id=1084802822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0)
 material_override = SubResource("StandardMaterial3D_c75qb")
 mesh = SubResource("SphereMesh_5r5fe")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bar" unique_id=783894406]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bar" unique_id=1386133337]
 shape = SubResource("BoxShape3D_tbg5o")
